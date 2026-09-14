@@ -1,0 +1,4 @@
+Used AI to explain the missing pieces needed to be implemented. It explained that I needed to add a case 
+for Ellipise for both the shapes.scala and also the boundingBox.scala. It also told me to add a 
+case for Groups to add the shapes because this project contains both a rectangle and also an
+Ellipse.
