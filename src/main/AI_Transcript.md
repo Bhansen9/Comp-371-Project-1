@@ -1,0 +1,1 @@
+Used AI to help layout what the needed functions needed to do. I also used it to help make new tests for the new functions. It helps a lot with visualizing what needed to be completed and how it might look with the existing structure.

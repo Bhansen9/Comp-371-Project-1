@@ -17,21 +17,24 @@ object boundingBox:
     case Ellipse(width, height) =>
       Location(-width, -height, Rectangle(width * 2, height * 2))
 
+    case Group() =>
+      Location(0, 0, Rectangle(0, 0))
+
     case Group(shapes*) =>
-  val boxes = shapes.map(apply)
+      val boxes = shapes.map(apply)
 
-  val minX = boxes.map(_.x).min
-  val minY = boxes.map(_.y).min
-  val maxX = boxes.map {
-    case Location(x, _, Rectangle(width, _)) => x + width
-    case _ => throw MatchError(s)
-  }.max
-  val maxY = boxes.map {
-    case Location(_, y, Rectangle(_, height)) => y + height
-    case _ => throw MatchError(s)
-  }.max
+      val minX = boxes.map(_.x).min
+      val minY = boxes.map(_.y).min
+      val maxX = boxes.map {
+        case Location(x, _, Rectangle(width, _)) => x + width
+        case _ => throw MatchError(s)
+      }.max
+      val maxY = boxes.map {
+        case Location(_, y, Rectangle(_, height)) => y + height
+        case _ => throw MatchError(s)
+      }.max
 
-  Location(minX, minY, Rectangle(maxX - minX, maxY - minY))
+      Location(minX, minY, Rectangle(maxX - minX, maxY - minY))
 
 
 end boundingBox
