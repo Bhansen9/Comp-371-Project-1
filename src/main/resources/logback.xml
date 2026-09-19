@@ -1,0 +1,13 @@
+<configuration>
+  <!-- Override with SHAPES_LOG_LEVEL=DEBUG when recursive traces are needed. -->
+  <property name="SHAPES_LOG_LEVEL" value="${SHAPES_LOG_LEVEL:-WARN}"/>
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  <root level="${SHAPES_LOG_LEVEL}">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>
+
